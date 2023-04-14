@@ -1,0 +1,51 @@
+# Basic addition tests
+  .text
+main:   
+        lui    $3, 0x1000
+        lui.s $3,0x1000
+        lui.s $8, 0x4020
+        #0x40200000 2.5
+        #0x416800000 14.5
+        lui.s $9,0x4168
+        c.le.d $2, $8 ,$9
+        nop
+        nop
+        nop
+        nop
+        sw.s $2,4($3)
+        nop
+        nop
+        nop
+        nop
+        lw $14,4($3)
+        nop
+        nop
+        nop
+        nop
+        beq $14 ,$zero , do
+        nop
+        nop
+        nop
+        add.s $13 ,$13 , $9
+        add.s $9 , $zero,$8
+        add.s $8 , $zero ,$13
+        do: 
+        nop 
+        nop
+        nop
+        div.s $11 , $8 , $9
+        r.s $12 , $11
+        nop
+        nop
+        nop
+        nop
+        sw.s $12 , 0($3)
+        nop
+        nop
+        nop
+        nop
+        lw $8, 0($3)
+        nop
+        nop
+        nop
+        syscall
